@@ -3,7 +3,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { Howl } from 'howler';
-//import { Pattern } from "@components/pattern";
+import { Pattern } from "./components/Pattern";
 
 const bpm = 130;
 // 16th notes
@@ -56,38 +56,38 @@ export default function Home() {
 	// when we mount or finish loading page, play simple pattern
 	// lookahead with requestAnimationBuffer
 	const [playing, setPlaying] = useState("");
-	const currentStep = useRef(0);
-	const nextStep = useRef(performance.now());
-
-	useEffect(() => {
-		const scheduleAheadTime = 100; // ms
-			
-		const scheduler = () => {
-			const now = performance.now();
-
-			while (nextStep.current < now + scheduleAheadTime && currentStep.current < steps) {
-				const step = currentStep.current;
-
-				let nowPlaying = '';
-
-				if (kickPattern[step] === 1) { nowPlaying += 'kick'; kick.play(); }
-				if (snarePattern[step] === 1) { nowPlaying += ' snare'; snare.play(); }
-				if (clapPattern[step] === 1) { nowPlaying += ' clap'; clap.play(); }
-
-				if (nowPlaying) setPlaying(nowPlaying);
-
-				currentStep.current += 1;
-				nextStep.current += stepDuration;
-			}
-
-
-			if (currentStep.current < steps) {
-				requestAnimationFrame(scheduler);
-			}
-		};
-
-		requestAnimationFrame(scheduler);
-	}, [])
+//	const currentStep = useRef(0);
+//	const nextStep = useRef(performance.now());
+//
+//	useEffect(() => {
+//		const scheduleAheadTime = 100; // ms
+//			
+//		const scheduler = () => {
+//			const now = performance.now();
+//
+//			while (nextStep.current < now + scheduleAheadTime && currentStep.current < steps) {
+//				const step = currentStep.current;
+//
+//				let nowPlaying = '';
+//
+//				if (kickPattern[step] === 1) { nowPlaying += 'kick'; kick.play(); }
+//				if (snarePattern[step] === 1) { nowPlaying += ' snare'; snare.play(); }
+//				if (clapPattern[step] === 1) { nowPlaying += ' clap'; clap.play(); }
+//
+//				if (nowPlaying) setPlaying(nowPlaying);
+//
+//				currentStep.current += 1;
+//				nextStep.current += stepDuration;
+//			}
+//
+//
+//			if (currentStep.current < steps) {
+//				requestAnimationFrame(scheduler);
+//			}
+//		};
+//
+//		requestAnimationFrame(scheduler);
+//	}, [])
 
 
 
@@ -99,6 +99,7 @@ export default function Home() {
 		<h1 className="text-xl font-bold"> snare </h1>
 		<h1 className="text-xl font-bold"> clap </h1>
 		<h1 className="text-xl font-bold"> now playing: {playing} </h1>
+		<Pattern />
 		</div>
 	);
 	// add Pattern
