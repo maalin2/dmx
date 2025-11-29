@@ -95,11 +95,11 @@ export default function Home() {
 		// flex-col to stack elements
 		// margin-5 for breathing room
 		<div className="flex flex-col m-5 items-center justify-center">
-		<h1 className="text-xl font-bold"> kick </h1>
-		<h1 className="text-xl font-bold"> snare </h1>
-		<h1 className="text-xl font-bold"> clap </h1>
-		<h1 className="text-xl font-bold"> now playing: {playing} </h1>
-		<Pattern />
+			<h1 className="text-xl font-bold"> kick </h1>
+			<h1 className="text-xl font-bold"> snare </h1>
+			<h1 className="text-xl font-bold"> clap </h1>
+			<h1 className="text-xl font-bold"> now playing: {playing} </h1>
+			<Pattern />
 		</div>
 	);
 	// add Pattern
