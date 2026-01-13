@@ -1,5 +1,5 @@
 # online dmx
-online oberheim dmx programmer. same machine used on new order
+online oberheim dmx programmer. same machine used by new order
 
 features a clap, snare, kick.
 
